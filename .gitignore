@@ -1,0 +1,8 @@
+.idea
+# Ignore node_modules
+node_modules/
+
+# Ignore other files/folders
+*.log
+*.env
+dist/
