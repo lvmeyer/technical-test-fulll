@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "module": "ES6",
+    "moduleResolution": "nodenext",
+    "target": "ES6",
+    "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist"
+  },
+
+  "include": ["src/**/*"],
+  "exclude": ["**/*.spec.ts"]
+}
