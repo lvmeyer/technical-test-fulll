@@ -1,0 +1,13 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "cucumber-js"
+  },
+  "devDependencies": {
+    "@types/cucumber": "^7.0.3",
+    "prettier": "^3.5.2"
+  }
+}
