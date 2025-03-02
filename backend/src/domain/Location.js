@@ -1,3 +1,5 @@
 export class Location {
-  constructor() {}
+  constructor(value) {
+    this.value = value;
+  }
 }

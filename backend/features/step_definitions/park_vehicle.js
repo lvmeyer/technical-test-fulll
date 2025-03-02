@@ -3,12 +3,14 @@ import { Given, When, Then } from "@cucumber/cucumber";
 import { Location } from "../../src/domain/Location.js";
 import { parkVehicleHandler } from "../../src/app/handlers/ParkVehicleHandler.js";
 import { fleetRepositoryInMemory } from "../../src/infra/FleetRepositoryInMemory.js";
+import { registerVehicleHandler } from "../../src/app/handlers/RegisterVehicleHandler.js";
 
 Given("a location", function () {
   this.location = new Location("444,222");
 });
 
 When("I park my vehicle at this location", function () {
+  registerVehicleHandler.handle(this.fleetId, this.vehicle);
   parkVehicleHandler.handle(this.fleetId, this.vehicle, this.location);
 });
 
@@ -17,8 +19,7 @@ Then(
   function () {
     const fleet = fleetRepositoryInMemory.getFleetById(this.fleetId);
     const vehicle = fleet.vehicles.find((v) => v.id === this.vehicle.id);
-
-    assert.strictEqual(vehicle.location, this.location);
+    assert.strictEqual(vehicle.location, this.location.value);
   },
 );
 

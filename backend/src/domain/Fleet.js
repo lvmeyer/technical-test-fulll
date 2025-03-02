@@ -19,4 +19,21 @@ export class Fleet {
 
     this.vehicles.push(vehicle);
   }
+
+  /**
+   * @param {Vehicle} vehicle
+   * @param {Location} location
+   * @returns {string}
+   */
+  parkVehicle(vehicle, location) {
+    const vehicleFound = this.vehicles.find((v) => v.id === vehicle.id);
+    if (!vehicleFound) {
+      throw new Error("VEHICLE_NOT_FOUND");
+    }
+
+    if (vehicleFound.location === location.value) {
+      throw new Error("VEHICLE_ALREADY_PARKED_AT_THIS_LOCATION");
+    }
+    vehicleFound.park(location);
+  }
 }
