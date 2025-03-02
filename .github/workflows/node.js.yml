@@ -1,0 +1,54 @@
+name: Run Tests for Project1 and Project2
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - 'feature/*'
+
+jobs:
+  setup-algo:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        project: [ 'algo' ]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '23'
+
+      - name: Install dependencies and run tests for ${{ matrix.project }}
+        working-directory: ./${{ matrix.project }}
+        run: |
+          npm install
+
+  setup-backend:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        project: [ 'backend' ]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '23'
+
+      - name: Install dependencies and run tests for ${{ matrix.project }}
+        working-directory: ./${{ matrix.project }}
+        run: |
+          yarn install
+          yarn test
+
