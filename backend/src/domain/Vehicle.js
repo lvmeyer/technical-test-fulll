@@ -4,6 +4,7 @@ export class Vehicle {
    */
   constructor(id) {
     this.id = id;
+    this.plateNumber = null;
     this.location = null;
   }
 
