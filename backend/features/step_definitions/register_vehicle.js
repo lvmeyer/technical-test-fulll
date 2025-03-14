@@ -43,7 +43,7 @@ When("I try to register this vehicle into my fleet", function () {
 Then(
   "I should be informed this this vehicle has already been registered into my fleet",
   function () {
-    assert.strictEqual(this.error.message, "VEHICLE_ALREADY_REGISTERED");
+    assert.strictEqual(this.error.message, "TEST_CI");
   },
 );
 
